@@ -3,7 +3,7 @@
     "name": "achyutn/filament4-kit",
     "type": "project",
     "description": "The starter kit for the Laravel framework with Filament v4 as Admin Panel.",
-    "keywords": ["laravel", "framework", "filament", "flirt-kit", "starter-kit"],
+    "keywords": ["laravel", "framework", "filament", "filamentv4-kit", "starter-kit"],
     "license": "MIT",
     "require": {
         "php": "^8.3",
