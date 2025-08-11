@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "achyutn/filament4-kit",
+    "name": "achyutn/filament-kit",
     "type": "project",
     "description": "The starter kit for the Laravel framework with Filament v4 as Admin Panel.",
-    "keywords": ["laravel", "framework", "filament", "filamentv4-kit", "starter-kit"],
+    "keywords": ["laravel", "framework", "filament", "filament-kit", "starter-kit"],
     "license": "MIT",
     "require": {
         "php": "^8.3",

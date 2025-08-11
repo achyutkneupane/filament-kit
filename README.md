@@ -1,7 +1,7 @@
 # Filament v4 Starter Kit
 
-[![Lint & Test PR](https://github.com/achyutkneupane/filamentv4-kit/actions/workflows/prlint.yml/badge.svg)](https://github.com/achyutkneupane/filamentv4-kit/actions/workflows/prlint.yml)
-[![Bump version](https://github.com/achyutkneupane/filamentv4-kit/actions/workflows/tagrelease.yml/badge.svg)](https://github.com/achyutkneupane/filamentv4-kit/actions/workflows/tagrelease.yml)
+[![Lint & Test PR](https://github.com/achyutkneupane/filament-kit/actions/workflows/prlint.yml/badge.svg)](https://github.com/achyutkneupane/filament-kit/actions/workflows/prlint.yml)
+[![Bump version](https://github.com/achyutkneupane/filament-kit/actions/workflows/tagrelease.yml/badge.svg)](https://github.com/achyutkneupane/filament-kit/actions/workflows/tagrelease.yml)
 
 This is a starter kit for building modern web applications using Filament as admin panel.
 
@@ -10,7 +10,7 @@ This is a starter kit for building modern web applications using Filament as adm
 You can create a new Laravel project using this starter kit by running the following command:
 
 ```shell
-laravel new --using=achyutn/filamentv4-kit
+laravel new --using=achyutn/filament-kit
 ```
 
 You will be asked to enter the name of your project. After that, the installation will proceed, and you will have a new Laravel project set up with Filament.
