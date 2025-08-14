@@ -23,10 +23,6 @@ Filament admin panel comes with ready-to-use log viewer, User resource, environm
 
 This package is open-sourced software licensed under the [MIT license](LICENSE.md).
 
-## Changelog
-
-See the [CHANGELOG](CHANGELOG.md) for details on changes made in each version.
-
 ## Contributing
 
 Contributions are welcome! Please create a pull request or open an issue if you find any bugs or have feature requests.
