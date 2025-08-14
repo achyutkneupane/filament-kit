@@ -19,6 +19,11 @@ Filament admin panel comes with ready-to-use log viewer, User resource, environm
 ![Filament Admin Panel Dark Mode](https://hamrocdn.com/qCx91jtdKDX9)
 ![Filament Admin Panel Light Mode](https://hamrocdn.com/a4YPBJVJeLx9)
 
+## Other Starter Kits
+
+If you want a starter kit with exact Filament admin panel but with RILT(React, Inertia, Laravel, Tailwind)
+setup, visit the [FLIRT Kit](https://github.com/achyutkneupane/flirt-kit).
+
 ## License
 
 This package is open-sourced software licensed under the [MIT license](LICENSE.md).
