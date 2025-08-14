@@ -1,6 +1,6 @@
 # Filament v4 Starter Kit
 
-[![Lint & Test PR](https://github.com/achyutkneupane/filament-kit/actions/workflows/prlint.yml/badge.svg)](https://github.com/achyutkneupane/filament-kit/actions/workflows/prlint.yml)
+[![Lint & Test PR](https://github.com/achyutkneupane/filament-kit/actions/workflows/tests.yml/badge.svg)](https://github.com/achyutkneupane/filament-kit/actions/workflows/tests.yml)
 [![Bump version](https://github.com/achyutkneupane/filament-kit/actions/workflows/tagrelease.yml/badge.svg)](https://github.com/achyutkneupane/filament-kit/actions/workflows/tagrelease.yml)
 
 This is a starter kit for building modern web applications using Filament as admin panel.
