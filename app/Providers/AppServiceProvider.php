@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
@@ -48,5 +50,15 @@ final class AppServiceProvider extends ServiceProvider
             URL::useOrigin(config('app.url'));
             URL::forceScheme('https');
         }
+
+        TextEntry::configureUsing(
+            fn (TextEntry $textEntry): TextEntry => $textEntry
+                ->placeholder('N/A')
+        );
+
+        TextColumn::configureUsing(
+            fn (TextColumn $textColumn): TextColumn => $textColumn
+                ->placeholder('N/A')
+        );
     }
 }
