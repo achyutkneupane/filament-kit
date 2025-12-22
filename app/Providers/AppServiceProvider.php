@@ -7,6 +7,7 @@ namespace App\Providers;
 use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 final class AppServiceProvider extends ServiceProvider
@@ -42,5 +43,10 @@ final class AppServiceProvider extends ServiceProvider
                 ->defaultTimeDisplayFormat('h:i A')
                 ->defaultDateTimeDisplayFormat('F j, Y, h:i A')
         );
+
+        if (app()->environment('production')) {
+            URL::useOrigin(config('app.url'));
+            URL::forceScheme('https');
+        }
     }
 }
