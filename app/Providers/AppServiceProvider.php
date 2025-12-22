@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Filament\Forms\Components\FileUpload;
+use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Model;
@@ -59,6 +62,25 @@ final class AppServiceProvider extends ServiceProvider
         TextColumn::configureUsing(
             fn (TextColumn $textColumn): TextColumn => $textColumn
                 ->placeholder('N/A')
+        );
+
+        FileUpload::configureUsing(
+            fn (FileUpload $fileUpload): FileUpload => $fileUpload
+                ->preserveFilenames()
+                ->disk('public')
+                ->visibility('public')
+        );
+
+        ImageColumn::configureUsing(
+            fn (ImageColumn $imageColumn): ImageColumn => $imageColumn
+                ->disk('public')
+                ->visibility('public')
+        );
+
+        ImageEntry::configureUsing(
+            fn (ImageEntry $imageEntry): ImageEntry => $imageEntry
+                ->disk('public')
+                ->visibility('public')
         );
     }
 }
