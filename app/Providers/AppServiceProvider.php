@@ -68,6 +68,7 @@ final class AppServiceProvider extends ServiceProvider
             fn (FileUpload $fileUpload): FileUpload => $fileUpload
                 ->preserveFilenames()
                 ->disk('public')
+                ->helperText('Please keep the aspect ratio in mind since cropping may occur. Press the pencil icon to edit the image after uploading.')
                 ->visibility('public')
         );
 
