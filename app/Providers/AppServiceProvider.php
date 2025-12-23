@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use Filament\Actions\CreateAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Forms\Components\FileUpload;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
@@ -82,6 +85,21 @@ final class AppServiceProvider extends ServiceProvider
             fn (ImageEntry $imageEntry): ImageEntry => $imageEntry
                 ->disk('public')
                 ->visibility('public')
+        );
+
+        CreateAction::configureUsing(
+            fn (CreateAction $createAction): CreateAction => $createAction
+                ->slideOver()
+        );
+
+        EditAction::configureUsing(
+            fn (EditAction $editAction): EditAction => $editAction
+                ->slideOver()
+        );
+
+        ViewAction::configureUsing(
+            fn (ViewAction $viewAction): ViewAction => $viewAction
+                ->slideOver()
         );
     }
 }
