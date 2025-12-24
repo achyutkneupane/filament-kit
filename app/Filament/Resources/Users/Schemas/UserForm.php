@@ -31,7 +31,13 @@ final class UserForm
                     ->email()
                     ->required(),
                 Select::make('role')
-                    ->options(UserRole::class)
+                    ->options(
+                        collect(auth()->user()->lowerRoles())
+                            ->mapWithKeys(fn (UserRole $role) => [
+                                $role->value => $role->getLabel(),
+                            ])
+                            ->all()
+                    )
                     ->default('user')
                     ->required(),
                 TextInput::make('password')
