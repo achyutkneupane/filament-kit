@@ -15,11 +15,30 @@ final class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'Achyut Neupane',
-            'email' => 'achyutkneupane@gmail.com',
-            'role' => UserRole::Developer,
-            'password' => bcrypt('Achyut@123'),
-        ]);
+        if (app()->isLocal()) {
+            User::query()->firstOrCreate([
+                'email' => 'developer@test.com',
+            ], [
+                'name' => 'Filament Developer',
+                'role' => UserRole::Developer,
+                'password' => bcrypt('password'),
+            ]);
+
+            User::query()->firstOrCreate([
+                'email' => 'admin@test.com',
+            ], [
+                'name' => 'Filament Admin',
+                'role' => UserRole::Admin,
+                'password' => bcrypt('password'),
+            ]);
+
+            User::query()->firstOrCreate([
+                'email' => 'user@test.com',
+            ], [
+                'name' => 'Filament User',
+                'role' => UserRole::User,
+                'password' => bcrypt('password'),
+            ]);
+        }
     }
 }
