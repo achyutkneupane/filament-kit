@@ -8,6 +8,7 @@ use App\Enums\UserRole;
 use Exception;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 final class UserForm
@@ -19,6 +20,10 @@ final class UserForm
     {
         return $schema
             ->components([
+                Section::make()
+                    ->columns()
+                    ->columnSpanFull()
+                    ->components([
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('email')
@@ -32,6 +37,7 @@ final class UserForm
                 TextInput::make('password')
                     ->password()
                     ->required(),
+                        ]),
             ]);
     }
 }
