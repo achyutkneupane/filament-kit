@@ -9,6 +9,7 @@
         "php": "^8.3",
         "achyutn/filament-log-viewer": "^1",
         "awcodes/filament-gravatar": "^3.0",
+        "dutchcodingcompany/filament-developer-logins": "^2.0",
         "filament/filament": "^4.3.1",
         "filament/spatie-laravel-media-library-plugin": "^3.3",
         "filament/spatie-laravel-settings-plugin": "^4.0",
