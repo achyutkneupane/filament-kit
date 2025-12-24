@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Scope;
 
-class LowerRoleOnly implements Scope
+final class LowerRoleOnly implements Scope
 {
     /**
      * Apply the scope to a given Eloquent query builder.
