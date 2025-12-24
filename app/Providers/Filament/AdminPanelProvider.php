@@ -6,6 +6,8 @@ namespace App\Providers\Filament;
 
 use AchyutN\FilamentLogViewer\FilamentLogViewer;
 use App\Enums\UserRole;
+use App\Filament\Commands\FileGenerators\Resources\ResourceClassGenerator;
+use App\Filament\Commands\FileGenerators\Resources\ResourceInfolistSchemaClassGenerator;
 use App\Settings\SiteSettings;
 use Awcodes\Gravatar\GravatarPlugin;
 use Awcodes\Gravatar\GravatarProvider;
@@ -14,6 +16,8 @@ use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
+use Filament\Commands\FileGenerators\Resources\ResourceClassGenerator as BaseResourceClassGenerator;
+use Filament\Commands\FileGenerators\Resources\Schemas\ResourceInfolistSchemaClassGenerator as BaseSchemasResourceInfolistSchemaClassGenerator;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Http\Middleware\Authenticate;
@@ -201,5 +205,13 @@ final class AdminPanelProvider extends PanelProvider
                     'style' => 'overflow-y: scroll; max-height: 600px;',
                 ])
         );
+    }
+
+    public function register(): void
+    {
+        parent::register();
+
+        $this->app->bind(BaseSchemasResourceInfolistSchemaClassGenerator::class, ResourceInfolistSchemaClassGenerator::class);
+        $this->app->bind(BaseResourceClassGenerator::class, ResourceClassGenerator::class);
     }
 }
