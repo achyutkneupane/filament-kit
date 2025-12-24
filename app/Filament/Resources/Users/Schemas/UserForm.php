@@ -24,26 +24,26 @@ final class UserForm
                     ->columns()
                     ->columnSpanFull()
                     ->components([
-                TextInput::make('name')
-                    ->required(),
-                TextInput::make('email')
-                    ->label('Email address')
-                    ->email()
-                    ->required(),
-                Select::make('role')
-                    ->options(
-                        collect(auth()->user()->lowerRoles())
-                            ->mapWithKeys(fn (UserRole $role) => [
-                                $role->value => $role->getLabel(),
-                            ])
-                            ->all()
-                    )
-                    ->default('user')
-                    ->required(),
-                TextInput::make('password')
-                    ->password()
-                    ->required(),
-                        ]),
+                        TextInput::make('name')
+                            ->required(),
+                        TextInput::make('email')
+                            ->label('Email address')
+                            ->email()
+                            ->required(),
+                        Select::make('role')
+                            ->options(
+                                collect(auth()->user()->lowerRoles())
+                                    ->mapWithKeys(fn (UserRole $userRole): array => [
+                                        $userRole->value => $userRole->getLabel(),
+                                    ])
+                                    ->all()
+                            )
+                            ->default('user')
+                            ->required(),
+                        TextInput::make('password')
+                            ->password()
+                            ->required(),
+                    ]),
             ]);
     }
 }

@@ -27,7 +27,7 @@ final class UserInfolist
                             ->label('Email address'),
                         TextEntry::make('role')
                             ->badge(),
-                        ]),
+                    ]),
             ]);
     }
 }
