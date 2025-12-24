@@ -82,8 +82,8 @@ final class User extends Authenticatable implements FilamentUser
     {
         return match (auth()->user()->role) {
             UserRole::Developer => [UserRole::Developer, UserRole::Admin, UserRole::User],
-            UserRole::Admin => [UserRole::User],
-            UserRole::User => [],
+            UserRole::Admin => [UserRole::Admin, UserRole::User],
+            UserRole::User => [UserRole::User],
         };
     }
 
