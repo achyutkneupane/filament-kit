@@ -9,13 +9,10 @@ use Filament\Pages\Enums\SubNavigationPosition;
 use Filament\Resources\Pages\Page;
 use Filament\Support\Commands\FileGenerators\Contracts\FileGenerator;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Str;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Literal;
-use ReflectionClass;
-use ReflectionException;
 
-class ResourceClassGenerator extends BaseResourceClassGenerator
+final class ResourceClassGenerator extends BaseResourceClassGenerator
 {
     protected function addNavigationIconPropertyToClass(ClassType $class): void
     {
@@ -64,6 +61,7 @@ class ResourceClassGenerator extends BaseResourceClassGenerator
 
         $this->namespace->addUse($viewPage);
         $this->namespace->addUse($editPage);
+
         $methodBody = <<<PHP
             return \$page->generateNavigationItems([
                 {$this->simplifyFqn($viewPage)}::class,
@@ -89,25 +87,5 @@ class ResourceClassGenerator extends BaseResourceClassGenerator
         );
 
         $filesystem->put($path, (($contents instanceof FileGenerator) ? $contents->generate() : $contents));
-    }
-
-    private function generateSEOPage(): string
-    {
-        $modelBasename = class_basename($this->modelFqn);
-        $singularModelBasename = Str::singular($modelBasename);
-        $namespace = $this->extractNamespace($this->getFqn());
-        $directory = str_replace('\\', '/', app()->basePath().'/'.str_replace('App\\', 'app/', $namespace));
-
-        $path = sprintf('%s/Pages/Manage%sSEO.php', $directory, $singularModelBasename);
-        $fqn = sprintf('%s\Pages\Manage%sSEO', $namespace, $singularModelBasename);
-
-        $this->writeFile($path, resolve(ResourceSEOPageClassGenerator::class, [
-            'fqn' => $fqn,
-            'resourceFqn' => $this->fqn,
-            'hasViewOperation' => $this->hasViewOperation(),
-            'isSoftDeletable' => $this->isSoftDeletable(),
-        ]));
-
-        return $fqn;
     }
 }
