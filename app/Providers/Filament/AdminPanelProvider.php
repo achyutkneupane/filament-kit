@@ -56,7 +56,7 @@ final class AdminPanelProvider extends PanelProvider
     {
         parent::__construct($app);
 
-        $this->settings = app(SiteSettings::class);
+        $this->settings = resolve(SiteSettings::class);
     }
 
     /**
