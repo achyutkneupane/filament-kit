@@ -6,9 +6,11 @@ namespace App\Models;
 
 use App\Enums\UserRole;
 use App\Models\Scopes\LowerRoleOnly;
+use Awcodes\Gravatar\Gravatar;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -107,5 +109,18 @@ final class User extends Authenticatable implements FilamentUser
             'password' => 'hashed',
             'role' => UserRole::class,
         ];
+    }
+
+    protected function avatar(): Attribute
+    {
+        $gravatar = Gravatar::get(
+            email: $this->email,
+            size: 200,
+            default: 'initials'
+        );
+
+        return Attribute::make(
+            get: fn (): string => $gravatar,
+        );
     }
 }
