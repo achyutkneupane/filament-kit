@@ -8,6 +8,7 @@ use Filament\Actions\CreateAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
@@ -100,6 +101,13 @@ final class AppServiceProvider extends ServiceProvider
         ViewAction::configureUsing(
             fn (ViewAction $viewAction): ViewAction => $viewAction
                 ->slideOver()
+        );
+
+        RichEditor::configureUsing(
+            fn (RichEditor $richEditor): RichEditor => $richEditor
+                ->extraInputAttributes([
+                    'style' => 'overflow-y: scroll; max-height: 600px;',
+                ])
         );
     }
 }
