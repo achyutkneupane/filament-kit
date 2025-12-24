@@ -18,18 +18,19 @@ jobs:
       fail-fast: true
       matrix:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
-        php: [ 8.3, 8.4 ]
+        php: [ 8.3, 8.4, 8.5 ]
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.ACTION_TOKEN }}
           fetch-depth: 0
 
       - name: "Check PR title"
-        uses: amannn/action-semantic-pull-request@v5
+        uses: amannn/action-semantic-pull-request@v6
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
 
       - name: "Setup PHP"
         uses: shivammathur/setup-php@v2
