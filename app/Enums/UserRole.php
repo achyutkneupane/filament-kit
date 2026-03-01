@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace App\Enums;
 
+use BackedEnum;
 use Filament\Support\Colors\Color;
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasLabel;
+use Filament\Support\Icons\Heroicon;
+use Illuminate\Contracts\Support\Htmlable;
 
 enum UserRole: string implements HasColor, HasLabel
 {
@@ -29,6 +32,15 @@ enum UserRole: string implements HasColor, HasLabel
             self::Developer => Color::Red,
             self::Admin => Color::Blue,
             self::User => Color::Green,
+        };
+    }
+
+    public function getIcon(): string|BackedEnum|Htmlable|null
+    {
+        return match ($this) {
+            self::Developer => Heroicon::CodeBracket,
+            self::Admin => Heroicon::ShieldCheck,
+            self::User => Heroicon::UserCircle,
         };
     }
 }

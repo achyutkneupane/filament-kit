@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Filament\Commands\FileGenerators\Resources;
 
 use Filament\Commands\FileGenerators\Resources\Schemas\ResourceInfolistSchemaClassGenerator as BaseResourceInfolistSchemaClassGenerator;
@@ -10,7 +8,7 @@ use Filament\Schemas\Components\Section;
 use Illuminate\Database\Eloquent\Model;
 use Nette\PhpGenerator\Literal;
 
-final class ResourceInfolistSchemaClassGenerator extends BaseResourceInfolistSchemaClassGenerator
+class ResourceInfolistSchemaClassGenerator extends BaseResourceInfolistSchemaClassGenerator
 {
     /**
      * @param  ?class-string<Model>  $model
