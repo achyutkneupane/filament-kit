@@ -72,9 +72,9 @@ final class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('')
             ->brandName(fn () => $this->settings->name)
-            ->brandLogo(fn () => $this->settings->logo ? '/'.$this->settings->logo : null)
+            ->brandLogo(fn () => $this->settings->logo ? '/storage/'.$this->settings->logo : null)
             ->brandLogoHeight('3rem')
-            ->favicon(fn () => $this->settings->favicon ? '/'.$this->settings->favicon : null)
+            ->favicon(fn () => $this->settings->favicon ? '/storage/'.$this->settings->favicon : null)
             ->login()
             ->colors([
                 'primary' => Color::hex('#fc6a3e'),
@@ -151,6 +151,8 @@ final class AdminPanelProvider extends PanelProvider
     {
         Table::configureUsing(
             fn (Table $table): Table => $table
+                ->defaultNumberLocale('en_NP')
+                ->defaultCurrency('NPR')
                 ->defaultDateDisplayFormat('F j, Y')
                 ->defaultTimeDisplayFormat('g:i A')
                 ->defaultDateTimeDisplayFormat('F j, Y, g:i A')
@@ -160,9 +162,11 @@ final class AdminPanelProvider extends PanelProvider
 
         Schema::configureUsing(
             fn (Schema $schema): Schema => $schema
+                ->defaultNumberLocale('en_NP')
+                ->defaultCurrency('NPR')
                 ->defaultDateDisplayFormat('F j, Y')
-                ->defaultTimeDisplayFormat('h:i A')
-                ->defaultDateTimeDisplayFormat('F j, Y, h:i A')
+                ->defaultTimeDisplayFormat('g:i A')
+                ->defaultDateTimeDisplayFormat('F j, Y, g:i A')
         );
 
         TextEntry::configureUsing(
