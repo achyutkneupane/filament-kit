@@ -12,7 +12,7 @@ use Illuminate\Filesystem\Filesystem;
 use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\Literal;
 
-class ResourceClassGenerator extends BaseResourceClassGenerator
+final class ResourceClassGenerator extends BaseResourceClassGenerator
 {
     protected function addNavigationIconPropertyToClass(ClassType $class): void
     {
